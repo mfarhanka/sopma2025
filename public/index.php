@@ -3,9 +3,7 @@
 <?php include 'includes/breadcrumb.php'; ?>
 
 
-<section class="container h-screen mx-auto text-center py-10">
-<!-- Hero Section -->
-<section class="relative bg-gradient-to-r from-yellow-500 to-red-500 text-white">
+<section class="relative bg-gradient-to-r from-[#FF7C27] to-[#E4221C] text-white">
   <div class="container mx-auto px-4 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-8">
 
     <!-- Left: Hero Image -->
@@ -13,9 +11,9 @@
       <img 
         src="assets/images/hero.png" 
         alt="Mascot welcoming athletes to SOPMA XXII Sarawak 2025" 
-        class="mx-auto lg:mx-0 max-w-sm md:max-w-md drop-shadow-xl rounded-lg"
+        class="mx-auto lg:mx-0 max-w-sm md:max-w-md drop-shadow-2xl rounded-xl border-4 border-[#FFD23A]"
       >
-      <figcaption class="mt-4 text-sm text-gray-200 italic">
+      <figcaption class="mt-4 text-sm text-[#D7D7D7] italic">
         Mascot of SOPMA XXII welcoming athletes and fans
       </figcaption>
     </div>
@@ -24,11 +22,12 @@
     <div class="lg:w-1/2 text-center lg:text-left">
       <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
         <span class="block">WELCOME TO</span>
-        <span class="block text-yellow-300">SOPMA XXII SARAWAK 2025</span>
+        <span class="block text-[#FFD23A] drop-shadow-lg">SOPMA XXII SARAWAK 2025</span>
       </h1>
       <p class="mt-4 text-lg md:text-xl text-gray-100">
-        The official information website for the <strong>Malaysian Deaf Sports Games</strong> happening on 
-        <span class="font-semibold">2 – 7 October 2025</span> in Kuching, Sarawak.
+        The official information website for the 
+        <strong class="text-[#FFD23A]">Malaysian Deaf Sports Games</strong> happening on 
+        <span class="font-semibold text-white">2 – 7 October 2025</span> in Kuching, Sarawak.
       </p>
       <p class="mt-2 text-sm text-gray-200">
         Accessible updates, schedules, venues, and results — designed with the Deaf community in mind.
@@ -37,12 +36,12 @@
       <!-- CTA Buttons -->
       <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
         <a href="schedule.php" 
-           class="px-6 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-lg shadow hover:bg-yellow-300 focus:ring-4 focus:ring-yellow-200 focus:outline-none transition">
-          View Schedule
+           class="px-6 py-3 bg-[#FFD23A] text-[#1A3A4C] font-semibold rounded-lg shadow hover:bg-[#FF7C27] hover:text-white focus:ring-4 focus:ring-[#FFD23A] focus:outline-none transition">
+          📅 View Schedule
         </a>
         <a href="results.php" 
-           class="px-6 py-3 bg-white text-blue-900 font-semibold rounded-lg shadow hover:bg-gray-100 focus:ring-4 focus:ring-white focus:outline-none transition">
-          Live Results
+           class="px-6 py-3 bg-white text-[#1A3A4C] font-semibold rounded-lg shadow hover:bg-gray-100 focus:ring-4 focus:ring-white focus:outline-none transition">
+          🏆 Live Results
         </a>
       </div>
     </div>
@@ -53,163 +52,190 @@
 </section>
 <main class="container mx-auto px-4 py-8">
   <!-- Title -->
-  <section class="text-center mb-8">
-    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">SOPMA 2025 Schedule</h1>
-    <p class="text-gray-600">2 – 7 October 2025 · Kuching, Sarawak</p>
-    <p class="text-sm text-gray-500">Last updated: 9 Sept 2025</p>
-  </section>
+<section class="text-center mb-8">
+  <h1 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-2">
+    SOPMA 2025 Schedule
+  </h1>
+  <p class="text-blue-700">2 – 7 October 2025 · Kuching, Sarawak</p>
+  <p class="text-sm text-gray-500">Last updated: 9 Sept 2025</p>
+</section>
 
-  <!-- Desktop Schedule Table -->
-  <div class="hidden md:block overflow-x-auto">
-    <table class="w-full border-collapse border border-yellow-300 text-sm">
-      <thead class="bg-yellow-100">
-        <tr>
-          <th class="border border-gray-300 px-4 py-2 text-left">Event / Venue</th>
-          <th class="border border-gray-300 px-4 py-2">1/10 Wed</th>
-          <th class="border border-gray-300 px-4 py-2">2/10 Thu</th>
-          <th class="border border-gray-300 px-4 py-2">3/10 Fri</th>
-          <th class="border border-gray-300 px-4 py-2">4/10 Sat</th>
-          <th class="border border-gray-300 px-4 py-2">5/10 Sun</th>
-          <th class="border border-gray-300 px-4 py-2">6/10 Mon</th>
-          <th class="border border-gray-300 px-4 py-2">7/10 Tue</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Row: Arrival / Departure -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Arrival / Departure</td>
-          <td class="border px-4 py-2">✈️🚌</td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">✈️🚌</td>
-        </tr>
-        <!-- Row: Technical Meeting -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Technical Meeting</td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">👥</td>
-          <td class="border px-4 py-2">👥</td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-        <!-- Row: Opening Ceremony -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Opening Ceremony<br><span class="text-xs text-gray-500">Hikmah Exchange Event Centre</span></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">🎉</td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-        <!-- Row: Closing Ceremony -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Closing Ceremony<br><span class="text-xs text-gray-500">Imperial Hotel Kuching</span></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">🎉</td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-        <!-- Row: Badminton -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Badminton<br><span class="text-xs text-gray-500">Arena Sukan Kuching</span></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">🏸 L</td>
-          <td class="border px-4 py-2">🏸 G</td>
-          <td class="border px-4 py-2">🏸 G</td>
-          <td class="border px-4 py-2">🏸 G</td>
-          <td class="border px-4 py-2">🏸 G</td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-        <!-- Row: Futsal -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Futsal<br><span class="text-xs text-gray-500">Indoor Stadium Kota Samarahan</span></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">⚽ L</td>
-          <td class="border px-4 py-2">⚽ G</td>
-          <td class="border px-4 py-2">⚽ G</td>
-          <td class="border px-4 py-2">⚽ G</td>
-          <td class="border px-4 py-2">⚽ G</td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-        <!-- Row: Athletics -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Athletics<br><span class="text-xs text-gray-500">Stadium Sarawak</span></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">🏃 L</td>
-          <td class="border px-4 py-2">🏃 G</td>
-          <td class="border px-4 py-2">🏃 G</td>
-          <td class="border px-4 py-2">🏃 G</td>
-          <td class="border px-4 py-2">🏃 G</td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-        <!-- Row: Orienteering -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Orienteering<br><span class="text-xs text-gray-500">Sama Jaya Forest Park</span></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">🧭 L</td>
-          <td class="border px-4 py-2">🧭 G</td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">🧭 G</td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-        <!-- Row: Bowling -->
-        <tr>
-          <td class="border px-4 py-2 font-medium">Tenpin Bowling<br><span class="text-xs text-gray-500">Megalanes Sarawak</span></td>
-          <td class="border px-4 py-2"></td>
-          <td class="border px-4 py-2">🎳 L</td>
-          <td class="border px-4 py-2">🎳 G</td>
-          <td class="border px-4 py-2">🎳 G</td>
-          <td class="border px-4 py-2">🎳 G</td>
-          <td class="border px-4 py-2">🎳 G</td>
-          <td class="border px-4 py-2"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<!-- Desktop Schedule Table -->
+<div class="hidden md:block overflow-x-auto">
+  <table class="w-full border-collapse border border-blue-200 text-sm rounded-lg shadow-lg">
+    <thead class="bg-gradient-to-r from-blue-800 to-blue-600 text-white">
+      <tr>
+        <th class="border border-blue-200 px-4 py-3 text-left font-semibold">Event / Venue</th>
+        <th class="border border-blue-200 px-4 py-3">1/10 Wed</th>
+        <th class="border border-blue-200 px-4 py-3">2/10 Thu</th>
+        <th class="border border-blue-200 px-4 py-3">3/10 Fri</th>
+        <th class="border border-blue-200 px-4 py-3">4/10 Sat</th>
+        <th class="border border-blue-200 px-4 py-3">5/10 Sun</th>
+        <th class="border border-blue-200 px-4 py-3">6/10 Mon</th>
+        <th class="border border-blue-200 px-4 py-3">7/10 Tue</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <!-- Row: Arrival / Departure -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">Arrival / Departure</td>
+        <td class="border px-4 py-3">✈️🚌</td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">✈️🚌</td>
+      </tr>
+      <!-- Row: Technical Meeting -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">Technical Meeting</td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">👥</td>
+        <td class="border px-4 py-3">👥</td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+      <!-- Row: Opening Ceremony -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">
+          Opening Ceremony<br>
+          <span class="text-xs text-gray-500">Hikmah Exchange Event Centre</span>
+        </td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">🎉</td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+      <!-- Row: Closing Ceremony -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">
+          Closing Ceremony<br>
+          <span class="text-xs text-gray-500">Imperial Hotel Kuching</span>
+        </td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">🎉</td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+      <!-- Row: Badminton -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">
+          Badminton<br>
+          <span class="text-xs text-gray-500">Arena Sukan Kuching</span>
+        </td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">🏸 L</td>
+        <td class="border px-4 py-3">🏸 G</td>
+        <td class="border px-4 py-3">🏸 G</td>
+        <td class="border px-4 py-3">🏸 G</td>
+        <td class="border px-4 py-3">🏸 G</td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+      <!-- Row: Futsal -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">
+          Futsal<br>
+          <span class="text-xs text-gray-500">Indoor Stadium Kota Samarahan</span>
+        </td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">⚽ L</td>
+        <td class="border px-4 py-3">⚽ G</td>
+        <td class="border px-4 py-3">⚽ G</td>
+        <td class="border px-4 py-3">⚽ G</td>
+        <td class="border px-4 py-3">⚽ G</td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+      <!-- Row: Athletics -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">
+          Athletics<br>
+          <span class="text-xs text-gray-500">Stadium Sarawak</span>
+        </td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">🏃 L</td>
+        <td class="border px-4 py-3">🏃 G</td>
+        <td class="border px-4 py-3">🏃 G</td>
+        <td class="border px-4 py-3">🏃 G</td>
+        <td class="border px-4 py-3">🏃 G</td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+      <!-- Row: Orienteering -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">
+          Orienteering<br>
+          <span class="text-xs text-gray-500">Sama Jaya Forest Park</span>
+        </td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">🧭 L</td>
+        <td class="border px-4 py-3">🧭 G</td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">🧭 G</td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+      <!-- Row: Bowling -->
+      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
+        <td class="border px-4 py-3 font-medium text-blue-900">
+          Tenpin Bowling<br>
+          <span class="text-xs text-gray-500">Megalanes Sarawak</span>
+        </td>
+        <td class="border px-4 py-3"></td>
+        <td class="border px-4 py-3">🎳 L</td>
+        <td class="border px-4 py-3">🎳 G</td>
+        <td class="border px-4 py-3">🎳 G</td>
+        <td class="border px-4 py-3">🎳 G</td>
+        <td class="border px-4 py-3">🎳 G</td>
+        <td class="border px-4 py-3"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
   <!-- Mobile Accordion -->
   <div class="md:hidden space-y-4">
-    <?php
-    $days = [
-      "1/10 Wed" => ["Arrival / Departure" => "✈️🚌"],
-      "2/10 Thu" => ["Technical Meeting" => "👥", "Opening Ceremony" => "🎉", "Badminton" => "🏸 L", "Futsal" => "⚽ L", "Athletics" => "🏃 L", "Bowling" => "🎳 L"],
-      "3/10 Fri" => ["Technical Meeting" => "👥", "Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 L", "Bowling" => "🎳 G"],
-      "4/10 Sat" => ["Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 G", "Bowling" => "🎳 G"],
-      "5/10 Sun" => ["Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Bowling" => "🎳 G"],
-      "6/10 Mon" => ["Closing Ceremony" => "🎉", "Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 G", "Bowling" => "🎳 G"],
-      "7/10 Tue" => ["Arrival / Departure" => "✈️🚌"]
-    ];
+  <?php
+  $days = [
+    "1/10 Wed" => ["Arrival / Departure" => "✈️🚌"],
+    "2/10 Thu" => ["Technical Meeting" => "👥", "Opening Ceremony" => "🎉", "Badminton" => "🏸 L", "Futsal" => "⚽ L", "Athletics" => "🏃 L", "Bowling" => "🎳 L"],
+    "3/10 Fri" => ["Technical Meeting" => "👥", "Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 L", "Bowling" => "🎳 G"],
+    "4/10 Sat" => ["Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 G", "Bowling" => "🎳 G"],
+    "5/10 Sun" => ["Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Bowling" => "🎳 G"],
+    "6/10 Mon" => ["Closing Ceremony" => "🎉", "Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 G", "Bowling" => "🎳 G"],
+    "7/10 Tue" => ["Arrival / Departure" => "✈️🚌"]
+  ];
 
-    foreach ($days as $day => $events): ?>
-      <details class="bg-white shadow rounded-lg p-4">
-        <summary class="font-semibold text-gray-800 cursor-pointer"><?php echo $day; ?></summary>
-        <ul class="mt-2 space-y-2">
-          <?php foreach ($events as $event => $icon): ?>
-            <li class="flex justify-between border-b pb-1">
-              <span><?php echo $event; ?></span>
-              <span><?php echo $icon; ?></span>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-      </details>
-    <?php endforeach; ?>
-  </div>
+  foreach ($days as $day => $events): ?>
+    <details class="bg-gradient-to-r from-blue-50 to-blue-100 shadow rounded-xl p-4 transition duration-200 hover:shadow-md focus-within:ring-2 focus-within:ring-blue-400">
+      <summary class="font-bold text-blue-900 cursor-pointer flex items-center justify-between">
+        <span><?php echo $day; ?></span>
+        <span class="text-blue-600 ml-2">+</span>
+      </summary>
+      <ul class="mt-3 space-y-2 text-blue-800">
+        <?php foreach ($events as $event => $icon): ?>
+          <li class="flex justify-between border-b border-blue-200 pb-1">
+            <span class="font-medium"><?php echo $event; ?></span>
+            <span class="text-lg"><?php echo $icon; ?></span>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    </details>
+  <?php endforeach; ?>
+</div>
 
-  <!-- Legend -->
-  <div class="mt-8 text-sm text-gray-600">
-    <p><strong>L</strong> = Training | <strong>G</strong> = Games / Competition</p>
-  </div>
+<!-- Legend -->
+<div class="mt-8 text-sm text-blue-700 bg-blue-50 border border-blue-200 rounded-lg p-3 shadow-sm">
+  <p><strong class="text-blue-900">L</strong> = Training | <strong class="text-blue-900">G</strong> = Games / Competition</p>
+</div>
+
 </main>
 
 <?php
@@ -232,18 +258,25 @@ $associations = [
 ?>
 
 <section class="max-w-7xl mx-auto px-4 py-12">
+  <!-- Title -->
   <div class="text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-indigo-700">Malaysian Deaf Sports Associations</h2>
-    <p class="mt-2 text-gray-600">14 Deaf State Associations competing in SOPMA XXII Sarawak 2025</p>
+    <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-500 bg-clip-text text-transparent">
+      Malaysian Deaf Sports Associations
+    </h2>
+    <p class="mt-2 text-slate-600">14 Deaf State Associations competing in SOPMA XXII Sarawak 2025</p>
   </div>
-
 
   <!-- Controls -->
   <div class="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
-    <input id="searchBar" type="text" placeholder="Search association..." 
-           class="w-full md:w-1/3 px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+    <input id="searchBar" 
+           type="text" 
+           placeholder="🔍 Search association..." 
+           class="w-full md:w-1/3 px-4 py-2 border border-slate-300 rounded-lg shadow-sm 
+                  focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition">
 
-    <select id="sortSelect" class="w-full md:w-1/4 px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+    <select id="sortSelect" 
+            class="w-full md:w-1/4 px-4 py-2 border border-slate-300 rounded-lg shadow-sm 
+                   focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none transition">
       <option value="nameAsc">Sort: A → Z</option>
       <option value="nameDesc">Sort: Z → A</option>
       <option value="athletesHigh">Most Athletes</option>
@@ -251,18 +284,17 @@ $associations = [
     </select>
   </div>
 
-    <!-- Charts -->
+  <!-- Charts -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-    <div class="bg-white shadow-lg rounded-xl p-6">
-      <h3 class="text-lg font-semibold text-gray-700 mb-4">Athletes by Association</h3>
+    <div class="bg-gradient-to-br from-white to-slate-50 shadow-xl rounded-2xl p-6 border border-indigo-100">
+      <h3 class="text-lg font-semibold text-indigo-700 mb-4">Athletes by Association</h3>
       <canvas id="athleteBarChart" aria-label="Athlete numbers by association (bar chart)" role="img"></canvas>
     </div>
-    <div class="bg-white shadow-lg rounded-xl p-6">
-      <h3 class="text-lg font-semibold text-gray-700 mb-4">Athlete Representation (%)</h3>
+    <div class="bg-gradient-to-br from-white to-slate-50 shadow-xl rounded-2xl p-6 border border-teal-100">
+      <h3 class="text-lg font-semibold text-teal-700 mb-4">Athlete Representation (%)</h3>
       <canvas id="athletePieChart" aria-label="Athlete numbers by association (pie chart)" role="img"></canvas>
     </div>
   </div>
-
 
   <!-- Grid -->
   <div id="associationGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"></div>
@@ -291,36 +323,43 @@ $associations = [
 
 <!-- Medal Standings -->
 <section class="max-w-6xl mx-auto px-4 py-12">
+  <!-- Title -->
   <div class="text-center mb-8">
-    <h2 class="text-3xl md:text-4xl font-bold text-green-700">Medal Standings</h2>
-    <p class="mt-2 text-gray-600">Live updates during SOPMA XXII</p>
+    <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-500 via-amber-600 to-orange-600 bg-clip-text text-transparent">
+      Medal Standings
+    </h2>
+    <p class="mt-2 text-slate-600">🏅 Live updates during SOPMA XXII</p>
   </div>
 
+  <!-- Table -->
   <div class="overflow-x-auto">
-    <table class="min-w-full border border-gray-200 divide-y divide-gray-200 text-sm text-center">
-      <thead class="bg-gray-100">
+    <table class="min-w-full border border-slate-200 divide-y divide-slate-200 text-sm text-center rounded-xl overflow-hidden shadow-lg">
+      <!-- Header -->
+      <thead class="bg-gradient-to-r from-slate-50 to-slate-100">
         <tr>
-          <th class="px-4 py-3 font-semibold text-gray-700">Country</th>
+          <th class="px-4 py-3 font-semibold text-slate-700">Country</th>
           <th class="px-4 py-3 font-semibold text-yellow-600">🥇 Gold</th>
           <th class="px-4 py-3 font-semibold text-gray-500">🥈 Silver</th>
           <th class="px-4 py-3 font-semibold text-amber-700">🥉 Bronze</th>
           <th class="px-4 py-3 font-semibold text-indigo-700">Total</th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-gray-100">
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-3 font-medium text-gray-800">Malaysia</td>
-          <td class="px-4 py-3">12</td>
-          <td class="px-4 py-3">8</td>
-          <td class="px-4 py-3">5</td>
-          <td class="px-4 py-3 font-bold">25</td>
+
+      <!-- Body -->
+      <tbody class="divide-y divide-slate-100">
+        <tr class="hover:bg-yellow-50 transition">
+          <td class="px-4 py-3 font-medium text-slate-800">Malaysia</td>
+          <td class="px-4 py-3 font-bold text-yellow-600">12</td>
+          <td class="px-4 py-3 font-bold text-gray-500">8</td>
+          <td class="px-4 py-3 font-bold text-amber-700">5</td>
+          <td class="px-4 py-3 font-extrabold text-indigo-700">25</td>
         </tr>
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-3 font-medium text-gray-800">Indonesia</td>
-          <td class="px-4 py-3">9</td>
-          <td class="px-4 py-3">10</td>
-          <td class="px-4 py-3">7</td>
-          <td class="px-4 py-3 font-bold">26</td>
+        <tr class="bg-slate-50 hover:bg-indigo-50 transition">
+          <td class="px-4 py-3 font-medium text-slate-800">Indonesia</td>
+          <td class="px-4 py-3 font-bold text-yellow-600">9</td>
+          <td class="px-4 py-3 font-bold text-gray-500">10</td>
+          <td class="px-4 py-3 font-bold text-amber-700">7</td>
+          <td class="px-4 py-3 font-extrabold text-indigo-700">26</td>
         </tr>
         <!-- Add more rows -->
       </tbody>
@@ -328,13 +367,15 @@ $associations = [
   </div>
 </section>
 <!-- Live / Recent Match Results -->
-<section class="py-12 bg-gray-50" id="live-results">
+<section class="py-12 bg-gradient-to-b from-blue-50 to-white" id="live-results">
   <div class="container mx-auto px-4">
 
     <!-- Title -->
     <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Live & Recent Match Results</h2>
-      <p class="mt-2 text-gray-600 text-lg">Updated match scores from SOPMA XXII Sarawak 2025</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 tracking-tight">
+        Live & Recent Match Results
+      </h2>
+      <p class="mt-2 text-gray-600 text-lg">⚡ Updated scores from SOPMA XXII Sarawak 2025</p>
     </div>
 
     <?php
@@ -373,9 +414,9 @@ $associations = [
     ?>
 
     <!-- Desktop Table -->
-    <div class="hidden md:block overflow-x-auto shadow-lg rounded-lg">
+    <div class="hidden md:block overflow-x-auto shadow-xl rounded-lg border border-slate-200">
       <table class="w-full border-collapse text-sm md:text-base">
-        <thead class="bg-blue-100 text-gray-700">
+        <thead class="bg-gradient-to-r from-blue-700 to-blue-900 text-white">
           <tr>
             <th class="px-4 py-3 text-left">Sport</th>
             <th class="px-4 py-3 text-left">Venue</th>
@@ -384,19 +425,21 @@ $associations = [
             <th class="px-4 py-3 text-center">Result</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200">
+        <tbody class="divide-y divide-slate-200">
           <?php foreach ($matches as $m): ?>
-            <tr class="hover:bg-gray-50 transition">
-              <td class="px-4 py-3 font-medium text-gray-800">
+            <tr class="hover:bg-blue-50 transition">
+              <td class="px-4 py-3 font-medium text-slate-800">
                 <i class="<?php echo $m['icon']; ?> text-blue-600"></i> <?php echo $m['sport']; ?>
               </td>
-              <td class="px-4 py-3"><?php echo $m['venue']; ?></td>
-              <td class="px-4 py-3"><?php echo $m['date']; ?></td>
-              <td class="px-4 py-3 text-center font-medium">
-                <?php echo $m['team1']; ?> vs <?php echo $m['team2']; ?>
+              <td class="px-4 py-3 text-slate-600"><?php echo $m['venue']; ?></td>
+              <td class="px-4 py-3 text-slate-600"><?php echo $m['date']; ?></td>
+              <td class="px-4 py-3 text-center font-medium text-slate-800">
+                <?php echo $m['team1']; ?> <span class="text-blue-500">vs</span> <?php echo $m['team2']; ?>
               </td>
-              <td class="px-4 py-3 text-center font-bold text-gray-900">
-                <?php echo $m['score1']; ?> - <?php echo $m['score2']; ?>
+              <td class="px-4 py-3 text-center font-bold text-blue-900">
+                <span class="px-3 py-1 bg-blue-100 rounded-lg">
+                  <?php echo $m['score1']; ?> - <?php echo $m['score2']; ?>
+                </span>
               </td>
             </tr>
           <?php endforeach; ?>
@@ -407,15 +450,17 @@ $associations = [
     <!-- Mobile Cards -->
     <div class="md:hidden space-y-4">
       <?php foreach ($matches as $m): ?>
-        <div class="bg-white rounded-lg shadow p-4">
-          <h3 class="font-bold text-lg text-blue-700 mb-2">
-            <i class="<?php echo $m['icon']; ?>"></i> <?php echo $m['sport']; ?>
+        <div class="bg-white rounded-lg shadow-lg border border-slate-200 p-4">
+          <h3 class="font-bold text-lg text-blue-800 mb-2 flex items-center gap-2">
+            <i class="<?php echo $m['icon']; ?> text-blue-600"></i> <?php echo $m['sport']; ?>
           </h3>
-          <p class="text-gray-600 text-sm mb-1"><strong>Venue:</strong> <?php echo $m['venue']; ?></p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Date:</strong> <?php echo $m['date']; ?></p>
-          <div class="flex justify-between items-center font-semibold text-gray-800">
+          <p class="text-slate-600 text-sm mb-1"><strong class="text-slate-700">Venue:</strong> <?php echo $m['venue']; ?></p>
+          <p class="text-slate-600 text-sm mb-3"><strong class="text-slate-700">Date:</strong> <?php echo $m['date']; ?></p>
+          <div class="flex justify-between items-center font-semibold text-slate-800">
             <span><?php echo $m['team1']; ?></span>
-            <span class="text-blue-600"><?php echo $m['score1']; ?> - <?php echo $m['score2']; ?></span>
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg shadow-sm">
+              <?php echo $m['score1']; ?> - <?php echo $m['score2']; ?>
+            </span>
             <span><?php echo $m['team2']; ?></span>
           </div>
         </div>
@@ -426,8 +471,7 @@ $associations = [
 </section>
 
 
-
-
+<?php include 'parnter.php'; ?>
 <?php include 'includes/footer.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
