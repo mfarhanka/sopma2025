@@ -1,5 +1,7 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/nav.php'; ?>
+<?php include 'includes/breadcrumb.php'; ?>
+
 
 <section class="container h-screen mx-auto text-center py-10">
 <!-- Hero Section -->
@@ -38,7 +40,7 @@
            class="px-6 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-lg shadow hover:bg-yellow-300 focus:ring-4 focus:ring-yellow-200 focus:outline-none transition">
           View Schedule
         </a>
-        <a href="#results" 
+        <a href="results.php" 
            class="px-6 py-3 bg-white text-blue-900 font-semibold rounded-lg shadow hover:bg-gray-100 focus:ring-4 focus:ring-white focus:outline-none transition">
           Live Results
         </a>

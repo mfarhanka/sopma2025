@@ -1,5 +1,7 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/nav.php'; ?>
+<?php include 'includes/breadcrumb.php'; ?>
+
 
 <main class="container mx-auto px-4 py-8">
   <!-- Title -->

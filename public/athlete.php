@@ -1,66 +1,62 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/nav.php'; ?>
+<?php include 'includes/breadcrumb.php'; ?>
 
-<main id="main-content" class="container h-full w-full mx-auto px-4 py-10">
-  <h2 class="text-3xl font-bold text-center mb-8">Athletes Directory</h2>
 
-  <!-- Search & Filter -->
-  <div class="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
-    <input type="text" placeholder="Search athletes..." 
-           class="w-full md:w-1/3 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-           aria-label="Search athletes">
-    <select class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-            aria-label="Filter by sport">
-      <option>All Sports</option>
-      <option>Athletics</option>
-      <option>Swimming</option>
-      <option>Football</option>
-      <option>Badminton</option>
-    </select>
-  </div>
+<main class="max-w-7xl mx-auto px-4 py-12">
 
-  <!-- Athlete Cards Grid -->
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
-    <?php
-    // Example static data — replace with DB fetch
-    $athletes = [
-      [
-        "id" => 1,
-        "name" => "John Lee",
-        "sport" => "Athletics – 100m Sprint",
-        "bio" => "Representing Malaysia at SOPMA 2025.",
-        "image" => "assets/images/althete.png"
-      ],
-      [
-        "id" => 2,
-        "name" => "Aisha Rahman",
-        "sport" => "Football – Striker",
-        "bio" => "Plays for Selangor Deaf FC.",
-        "image" => "assets/images/althete.png"
-      ],
-      [
-        "id" => 3,
-        "name" => "Nur Farah",
-        "sport" => "Swimming – 200m Freestyle",
-        "bio" => "National Deaf Swimming Champion.",
-        "image" => "assets/images/althete.png"
-      ]
-    ];
+  <!-- Hero Section -->
+  <section class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-blue-700 mb-4">🏅 Meet the Athletes</h1>
+    <p class="text-lg text-gray-600">Discover the amazing athletes participating in SOPMA XXII Sarawak 2025.</p>
+  </section>
 
-    foreach ($athletes as $athlete): ?>
-      <div role="listitem" class="bg-white rounded-xl shadow hover:shadow-lg transition p-5">
-        <img src="<?php echo $athlete['image']; ?>" 
-             alt="Photo of <?php echo $athlete['name']; ?>" 
-             class="w-full h-48 object-cover rounded-lg mb-4">
-        <h3 class="text-xl font-semibold"><?php echo $athlete['name']; ?></h3>
-        <p class="text-sm text-gray-600"><?php echo $athlete['sport']; ?></p>
-        <p class="text-gray-700 mt-2"><?php echo $athlete['bio']; ?></p>
-        <a href="athlete-profile.php?id=<?php echo $athlete['id']; ?>" 
-           class="mt-3 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">
-          View Profile
-        </a>
+  <!-- Search + Filter -->
+  <section class="mb-10">
+    <form class="flex flex-col md:flex-row gap-4 justify-center">
+      <input type="text" placeholder="Search athlete by name..." 
+        class="w-full md:w-1/3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+        aria-label="Search athlete by name">
+
+      <select class="w-full md:w-1/4 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500" aria-label="Filter by sport">
+        <option>All Sports</option>
+        <option>Badminton</option>
+        <option>Futsal</option>
+        <option>Athletics</option>
+        <!-- More sports -->
+      </select>
+
+      <select class="w-full md:w-1/4 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500" aria-label="Filter by state">
+        <option>All States</option>
+        <option>FTDeaf</option>
+        <option>JSDeaf</option>
+        <option>SelSDeaf</option>
+        <!-- More -->
+      </select>
+
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Filter</button>
+    </form>
+  </section>
+
+  <!-- Athletes Grid -->
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    
+    <!-- Athlete Card -->
+    <div class="bg-white shadow-lg rounded-xl overflow-hidden border hover:shadow-xl transition">
+      <img src="assets/images/athletes/athlete1.jpg" alt="Athlete photo" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h2 class="text-xl font-bold text-gray-800">Aiman Rahman</h2>
+        <p class="text-gray-600">🏸 Badminton | SelSDeaf</p>
+        <div class="flex items-center gap-2 mt-2">
+          <span class="bg-yellow-400 text-white text-sm px-2 py-1 rounded-full">🥇 2 Gold</span>
+          <span class="bg-gray-400 text-white text-sm px-2 py-1 rounded-full">🥈 1 Silver</span>
+        </div>
+        <a href="athlete-detail.php" class="block mt-4 text-blue-600 font-semibold hover:underline">View Profile →</a>
       </div>
-    <?php endforeach; ?>
+    </div>
+
+    <!-- Repeat Athlete Cards dynamically with PHP loop -->
+
   </div>
 </main>
 
