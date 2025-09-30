@@ -52,190 +52,6 @@
 </section>
 <main class="container mx-auto px-4 py-8">
   <!-- Title -->
-<section class="text-center mb-8">
-  <h1 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-2">
-    SOPMA 2025 Schedule
-  </h1>
-  <p class="text-blue-700">2 – 7 October 2025 · Kuching, Sarawak</p>
-  <p class="text-sm text-gray-500">Last updated: 9 Sept 2025</p>
-</section>
-
-<!-- Desktop Schedule Table -->
-<div class="hidden md:block overflow-x-auto">
-  <table class="w-full border-collapse border border-blue-200 text-sm rounded-lg shadow-lg">
-    <thead class="bg-gradient-to-r from-blue-800 to-blue-600 text-white">
-      <tr>
-        <th class="border border-blue-200 px-4 py-3 text-left font-semibold">Event / Venue</th>
-        <th class="border border-blue-200 px-4 py-3">1/10 Wed</th>
-        <th class="border border-blue-200 px-4 py-3">2/10 Thu</th>
-        <th class="border border-blue-200 px-4 py-3">3/10 Fri</th>
-        <th class="border border-blue-200 px-4 py-3">4/10 Sat</th>
-        <th class="border border-blue-200 px-4 py-3">5/10 Sun</th>
-        <th class="border border-blue-200 px-4 py-3">6/10 Mon</th>
-        <th class="border border-blue-200 px-4 py-3">7/10 Tue</th>
-      </tr>
-    </thead>
-    <tbody class="bg-white">
-      <!-- Row: Arrival / Departure -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">Arrival / Departure</td>
-        <td class="border px-4 py-3">✈️🚌</td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">✈️🚌</td>
-      </tr>
-      <!-- Row: Technical Meeting -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">Technical Meeting</td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">👥</td>
-        <td class="border px-4 py-3">👥</td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-      <!-- Row: Opening Ceremony -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">
-          Opening Ceremony<br>
-          <span class="text-xs text-gray-500">Hikmah Exchange Event Centre</span>
-        </td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">🎉</td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-      <!-- Row: Closing Ceremony -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">
-          Closing Ceremony<br>
-          <span class="text-xs text-gray-500">Imperial Hotel Kuching</span>
-        </td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">🎉</td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-      <!-- Row: Badminton -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">
-          Badminton<br>
-          <span class="text-xs text-gray-500">Arena Sukan Kuching</span>
-        </td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">🏸 L</td>
-        <td class="border px-4 py-3">🏸 G</td>
-        <td class="border px-4 py-3">🏸 G</td>
-        <td class="border px-4 py-3">🏸 G</td>
-        <td class="border px-4 py-3">🏸 G</td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-      <!-- Row: Futsal -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">
-          Futsal<br>
-          <span class="text-xs text-gray-500">Indoor Stadium Kota Samarahan</span>
-        </td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">⚽ L</td>
-        <td class="border px-4 py-3">⚽ G</td>
-        <td class="border px-4 py-3">⚽ G</td>
-        <td class="border px-4 py-3">⚽ G</td>
-        <td class="border px-4 py-3">⚽ G</td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-      <!-- Row: Athletics -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">
-          Athletics<br>
-          <span class="text-xs text-gray-500">Stadium Sarawak</span>
-        </td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">🏃 L</td>
-        <td class="border px-4 py-3">🏃 G</td>
-        <td class="border px-4 py-3">🏃 G</td>
-        <td class="border px-4 py-3">🏃 G</td>
-        <td class="border px-4 py-3">🏃 G</td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-      <!-- Row: Orienteering -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">
-          Orienteering<br>
-          <span class="text-xs text-gray-500">Sama Jaya Forest Park</span>
-        </td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">🧭 L</td>
-        <td class="border px-4 py-3">🧭 G</td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">🧭 G</td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-      <!-- Row: Bowling -->
-      <tr class="hover:bg-blue-50 focus-within:bg-blue-100 transition">
-        <td class="border px-4 py-3 font-medium text-blue-900">
-          Tenpin Bowling<br>
-          <span class="text-xs text-gray-500">Megalanes Sarawak</span>
-        </td>
-        <td class="border px-4 py-3"></td>
-        <td class="border px-4 py-3">🎳 L</td>
-        <td class="border px-4 py-3">🎳 G</td>
-        <td class="border px-4 py-3">🎳 G</td>
-        <td class="border px-4 py-3">🎳 G</td>
-        <td class="border px-4 py-3">🎳 G</td>
-        <td class="border px-4 py-3"></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-  <!-- Mobile Accordion -->
-  <div class="md:hidden space-y-4">
-  <?php
-  $days = [
-    "1/10 Wed" => ["Arrival / Departure" => "✈️🚌"],
-    "2/10 Thu" => ["Technical Meeting" => "👥", "Opening Ceremony" => "🎉", "Badminton" => "🏸 L", "Futsal" => "⚽ L", "Athletics" => "🏃 L", "Bowling" => "🎳 L"],
-    "3/10 Fri" => ["Technical Meeting" => "👥", "Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 L", "Bowling" => "🎳 G"],
-    "4/10 Sat" => ["Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 G", "Bowling" => "🎳 G"],
-    "5/10 Sun" => ["Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Bowling" => "🎳 G"],
-    "6/10 Mon" => ["Closing Ceremony" => "🎉", "Badminton" => "🏸 G", "Futsal" => "⚽ G", "Athletics" => "🏃 G", "Orienteering" => "🧭 G", "Bowling" => "🎳 G"],
-    "7/10 Tue" => ["Arrival / Departure" => "✈️🚌"]
-  ];
-
-  foreach ($days as $day => $events): ?>
-    <details class="bg-gradient-to-r from-blue-50 to-blue-100 shadow rounded-xl p-4 transition duration-200 hover:shadow-md focus-within:ring-2 focus-within:ring-blue-400">
-      <summary class="font-bold text-blue-900 cursor-pointer flex items-center justify-between">
-        <span><?php echo $day; ?></span>
-        <span class="text-blue-600 ml-2">+</span>
-      </summary>
-      <ul class="mt-3 space-y-2 text-blue-800">
-        <?php foreach ($events as $event => $icon): ?>
-          <li class="flex justify-between border-b border-blue-200 pb-1">
-            <span class="font-medium"><?php echo $event; ?></span>
-            <span class="text-lg"><?php echo $icon; ?></span>
-          </li>
-        <?php endforeach; ?>
-      </ul>
-    </details>
-  <?php endforeach; ?>
-</div>
-
-<!-- Legend -->
-<div class="mt-8 text-sm text-blue-700 bg-blue-50 border border-blue-200 rounded-lg p-3 shadow-sm">
-  <p><strong class="text-blue-900">L</strong> = Training | <strong class="text-blue-900">G</strong> = Games / Competition</p>
-</div>
-
 </main>
 
 <?php
@@ -591,5 +407,21 @@ const associations = <?php echo json_encode($associations); ?>;
 
   // Initial render
   filterAndSort();
+
+ 
+// Toggle dropdown
+function toggleTranslateDropdown() {
+    const options = document.getElementById('translate-options');
+    options.style.display = options.style.display === 'none' ? 'block' : 'none';
+}
+
+// Change language
+function translateTo(lang) {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+    }
+}
 </script>
 

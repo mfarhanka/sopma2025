@@ -2,30 +2,35 @@
 // Example sponsors/partners with international URLs + logo image paths
 $partners = [
   [
-    "name" => "UNICEF",
-    "url"  => "https://www.unicef.org/",
-    "logo" => "assets/logos/unicef.png"
+    "name" => "MSDeaf",
+    "url"  => "https://msdeaf.org.my/",
+    "logo" => "assets/images/logo.png"
   ],
   [
-    "name" => "Google",
-    "url"  => "https://about.google/",
-    "logo" => "assets/logos/google.png"
+    "name" => "SOPMA XXII 2025 Sarawak",
+    "url"  => "https://msdeaf.org.my/",
+    "logo" => "assets/images/logo-sopma.png"
   ],
   [
-    "name" => "FIFA",
-    "url"  => "https://www.fifa.com/",
-    "logo" => "assets/logos/fifa.png"
+    "name" => "MSDeaf",
+    "url"  => "https://msdeaf.org.my/",
+    "logo" => "assets/images/logo.png"
   ],
   [
-    "name" => "WHO",
-    "url"  => "https://www.who.int/",
-    "logo" => "assets/logos/who.png"
+    "name" => "SOPMA XXII 2025 Sarawak",
+    "url"  => "https://msdeaf.org.my/",
+    "logo" => "assets/images/logo-sopma.png"
   ],
   [
-    "name" => "UNESCO",
-    "url"  => "https://www.unesco.org/",
-    "logo" => "assets/logos/unesco.png"
-  ]
+    "name" => "MSDeaf",
+    "url"  => "https://msdeaf.org.my/",
+    "logo" => "assets/images/logo.png"
+  ],
+  [
+    "name" => "SOPMA XXII 2025 Sarawak",
+    "url"  => "https://msdeaf.org.my/",
+    "logo" => "assets/images/logo-sopma.png"
+  ],
 ];
 ?>
 
