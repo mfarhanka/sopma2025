@@ -10,13 +10,13 @@
    <script src="https://cdn.tailwindcss.com"></script>
    <!-- Google Translate -->
 <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',          // default language
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
+// function googleTranslateElementInit() {
+//   new google.translate.TranslateElement({
+//     pageLanguage: 'en',          // default language
+//     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+//     autoDisplay: false
+//   }, 'google_translate_element');
+// }
 
 
 </script>

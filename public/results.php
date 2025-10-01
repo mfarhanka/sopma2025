@@ -1,11 +1,24 @@
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/nav.php'; ?>
-<?php include 'includes/breadcrumb.php'; ?>
+<?php 
+include 'includes/header.php'; 
+include 'includes/nav.php'; 
+include 'includes/breadcrumb.php'; 
 
-<!-- Include Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-jQ20bCkJkO5B6qOYp5XfXQbP2lF0Yb7xL9pU+zJ0nFqzvL3R6R1V0l8cMkT6yC0i5bKZoxQ5fzD0l0/jYp5T1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+// Database connection
+$pdo = new PDO("mysql:host=localhost;dbname=sopma2025","root","");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Fetch medal standings
+$medals = $pdo->query("SELECT *, (gold+silver+bronze) AS total FROM medal_tally ORDER BY total DESC")->fetchAll(PDO::FETCH_ASSOC);
+
+// Fetch match results
+$results = $pdo->query("SELECT r.*, s.name AS sport_name, s.venue AS sport_venue 
+                        FROM results r 
+                        LEFT JOIN sports s ON r.sport_id = s.id
+                        ORDER BY r.match_date ASC")->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <main class="bg-gray-50 min-h-screen py-10">
+
   <!-- Hero Banner -->
   <section class="max-w-7xl mx-auto px-4 lg:px-8 mb-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -19,7 +32,7 @@
           from <span class="font-semibold">Badminton, Athletics, Futsal, Orienteering, Bowling</span>.
         </p>
         <p class="text-sm text-gray-500 mt-2">
-          2 – 6 October 2025 · Kuching, Sarawak | Last updated: 30 Sept 2025
+          2 – 6 October 2025 · Kuching, Sarawak | Last updated: <?= date('d M Y') ?>
         </p>
       </div>
       <div>
@@ -43,11 +56,14 @@
         </select>
         <select class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 w-full md:w-auto">
           <option value="">All Dates</option>
-          <option value="2025-10-02">2 Oct 2025</option>
-          <option value="2025-10-03">3 Oct 2025</option>
-          <option value="2025-10-04">4 Oct 2025</option>
-          <option value="2025-10-05">5 Oct 2025</option>
-          <option value="2025-10-06">6 Oct 2025</option>
+          <?php
+          // Generate date options dynamically from results
+          $dates = array_unique(array_map(fn($r) => $r['match_date'], $results));
+          sort($dates);
+          foreach($dates as $date){
+              echo "<option value='{$date}'>".date('d M Y', strtotime($date))."</option>";
+          }
+          ?>
         </select>
       </div>
       <div class="relative w-full md:w-64">
@@ -64,21 +80,27 @@
   <section class="max-w-7xl mx-auto px-4 lg:px-8 mb-12">
     <h2 class="text-2xl font-bold text-gray-800 mb-6">Medal Summary</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <?php
+      $totalGold = array_sum(array_column($medals, 'gold'));
+      $totalSilver = array_sum(array_column($medals, 'silver'));
+      $totalBronze = array_sum(array_column($medals, 'bronze'));
+      $totalAll = $totalGold + $totalSilver + $totalBronze;
+      ?>
       <div class="bg-white rounded-xl shadow p-6 text-center">
         <p class="text-lg font-semibold text-yellow-500">Gold</p>
-        <p class="text-3xl font-bold text-gray-800">15</p>
+        <p class="text-3xl font-bold text-gray-800"><?= $totalGold ?></p>
       </div>
       <div class="bg-white rounded-xl shadow p-6 text-center">
         <p class="text-lg font-semibold text-gray-500">Silver</p>
-        <p class="text-3xl font-bold text-gray-800">12</p>
+        <p class="text-3xl font-bold text-gray-800"><?= $totalSilver ?></p>
       </div>
       <div class="bg-white rounded-xl shadow p-6 text-center">
         <p class="text-lg font-semibold text-amber-700">Bronze</p>
-        <p class="text-3xl font-bold text-gray-800">8</p>
+        <p class="text-3xl font-bold text-gray-800"><?= $totalBronze ?></p>
       </div>
       <div class="bg-white rounded-xl shadow p-6 text-center">
         <p class="text-lg font-semibold text-indigo-600">Total</p>
-        <p class="text-3xl font-bold text-gray-800">35</p>
+        <p class="text-3xl font-bold text-gray-800"><?= $totalAll ?></p>
       </div>
     </div>
   </section>
@@ -86,72 +108,54 @@
   <!-- Results Table -->
   <section class="max-w-7xl mx-auto px-4 lg:px-8 mb-12">
     <h2 class="text-2xl font-bold text-gray-800 mb-6">Latest Results</h2>
-    <div class="overflow-x-auto bg-white rounded-xl shadow">
+
+    <!-- Desktop Table -->
+    <div class="hidden md:block overflow-x-auto bg-white rounded-xl shadow">
       <table class="w-full text-left border-collapse">
         <thead class="bg-indigo-600 text-white">
           <tr>
             <th class="p-4">Sport</th>
-            <th class="p-4">Match</th>
+            <th class="p-4">Match/Event</th>
             <th class="p-4"><i class="fas fa-calendar-alt mr-1"></i>Date</th>
             <th class="p-4"><i class="fas fa-map-marker-alt mr-1"></i>Venue</th>
-            <th class="p-4"><i class="fas fa-trophy mr-1"></i>Result</th>
+            <th class="p-4"><i class="fas fa-trophy mr-1"></i>🥇</th>
+            <th class="p-4 text-center">🥈</th>
+            <th class="p-4 text-center">🥉</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Example Rows with Sport Images -->
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4 flex items-center">
-              <img src="assets/images/soccer.png" alt="Futsal" class="w-6 h-6 mr-2">
-              Futsal
-            </td>
-            <td class="p-4">FTDeaf vs SelSDeaf</td>
-            <td class="p-4"><i class="fas fa-calendar-alt mr-1"></i> 2 Oct 2025</td>
-            <td class="p-4"><i class="fas fa-map-marker-alt mr-1"></i> Indoor Stadium Kota Samarahan</td>
-            <td class="p-4 font-semibold text-green-600"><i class="fas fa-check-circle mr-1"></i> 3 - 2</td>
+          <?php foreach($results as $r): ?>
+          <tr class="border-b hover:bg-gray-50 transition">
+            <td class="p-4 flex items-center"><?= $r['sport_name'] ?></td>
+            <td class="p-4"><?= $r['event_name'] ?></td>
+            <td class="p-4"><?= date('d M Y', strtotime($r['match_date'])) ?></td>
+            <td class="p-4"><?= $r['sport_venue'] ?></td>
+            <td class="p-4 text-yellow-600 font-bold"><?= $r['gold'] ?></td>
+            <td class="p-4 text-gray-500 font-bold"><?= $r['silver'] ?></td>
+            <td class="p-4 text-amber-700 font-bold"><?= $r['bronze'] ?></td>
           </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4 flex items-center">
-              <img src="assets/images/Badminton.png" alt="Badminton" class="w-6 h-6 mr-2">
-              Badminton
-            </td>
-            <td class="p-4">NSDeaf vs KelSDeaf</td>
-            <td class="p-4"><i class="fas fa-calendar-alt mr-1"></i> 3 Oct 2025</td>
-            <td class="p-4"><i class="fas fa-map-marker-alt mr-1"></i> Arena Sukan Kuching</td>
-            <td class="p-4 font-semibold text-blue-600"><i class="fas fa-check-circle mr-1"></i> 2 - 1</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4 flex items-center">
-              <img src="assets/images/runner.png" alt="Athletics" class="w-6 h-6 mr-2">
-              Athletics
-            </td>
-            <td class="p-4">100m Final – Men</td>
-            <td class="p-4"><i class="fas fa-calendar-alt mr-1"></i> 4 Oct 2025</td>
-            <td class="p-4"><i class="fas fa-map-marker-alt mr-1"></i> Stadium Sarawak</td>
-            <td class="p-4 font-semibold text-yellow-600"><i class="fas fa-medal mr-1"></i> Gold – Perak Deaf</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4 flex items-center">
-              <img src="assets/images/althete.png" alt="Orienteering" class="w-6 h-6 mr-2">
-              Orienteering
-            </td>
-            <td class="p-4">Mixed Relay</td>
-            <td class="p-4"><i class="fas fa-calendar-alt mr-1"></i> 5 Oct 2025</td>
-            <td class="p-4"><i class="fas fa-map-marker-alt mr-1"></i> Sama Jaya Forest Park</td>
-            <td class="p-4 font-semibold text-gray-500"><i class="fas fa-medal mr-1"></i> Silver – Selangor Deaf</td>
-          </tr>
-          <tr class="hover:bg-gray-50">
-            <td class="p-4 flex items-center">
-              <img src="assets/images/Bowling.png" alt="Bowling" class="w-6 h-6 mr-2">
-              Bowling
-            </td>
-            <td class="p-4">Team Event</td>
-            <td class="p-4"><i class="fas fa-calendar-alt mr-1"></i> 6 Oct 2025</td>
-            <td class="p-4"><i class="fas fa-map-marker-alt mr-1"></i> Megalanes Sarawak</td>
-            <td class="p-4 font-semibold text-amber-700"><i class="fas fa-medal mr-1"></i> Bronze – Kuala Lumpur Deaf</td>
-          </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>
+
+    <!-- Mobile Cards -->
+    <div class="md:hidden space-y-4">
+      <?php foreach($results as $r): ?>
+      <div class="bg-white rounded-lg shadow-lg border border-slate-200 p-4">
+        <h3 class="font-bold text-lg text-blue-800 mb-2"><?= $r['sport_name'] ?></h3>
+        <p class="text-slate-600 text-sm mb-1"><strong>Event:</strong> <?= $r['event_name'] ?></p>
+        <p class="text-slate-600 text-sm mb-1"><strong>Venue:</strong> <?= $r['sport_venue'] ?></p>
+        <p class="text-slate-600 text-sm mb-2"><strong>Date:</strong> <?= date('d M Y', strtotime($r['match_date'])) ?></p>
+        <div class="flex justify-between font-semibold text-slate-800">
+          <span class="text-yellow-600 font-bold">🥇 <?= $r['gold'] ?></span>
+          <span class="text-gray-500 font-bold">🥈 <?= $r['silver'] ?></span>
+          <span class="text-amber-700 font-bold">🥉 <?= $r['bronze'] ?></span>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+
   </section>
 </main>
 

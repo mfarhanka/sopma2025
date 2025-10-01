@@ -1,3 +1,9 @@
+<?php
+// Database connection
+$pdo = new PDO("mysql:host=localhost;dbname=sopma2025","root","");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+?>
+
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/nav.php'; ?>
 <?php include 'includes/breadcrumb.php'; ?>
@@ -135,58 +141,60 @@ $associations = [
 ];
 ?>
 
+<?php
+$pdo = new PDO("mysql:host=localhost;dbname=sopma2025","root","");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Fetch Medal Tally
+$medals = $pdo->query("SELECT *, (gold+silver+bronze) AS total FROM medal_tally ORDER BY total DESC")->fetchAll(PDO::FETCH_ASSOC);
+
+// Fetch Match Results
+$results = $pdo->query("SELECT r.*, s.name AS sport_name, s.venue AS sport_venue 
+                        FROM results r 
+                        LEFT JOIN sports s ON r.sport_id = s.id
+                        ORDER BY r.match_date ASC")->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 
 <!-- Medal Standings -->
+<!-- Medal Standings Section -->
 <section class="max-w-6xl mx-auto px-4 py-12">
-  <!-- Title -->
-  <div class="text-center mb-8">
+  <div id="medal-standings" class="text-center mb-8">
     <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-500 via-amber-600 to-orange-600 bg-clip-text text-transparent">
       Medal Standings
     </h2>
     <p class="mt-2 text-slate-600">🏅 Live updates during SOPMA XXII</p>
   </div>
 
-  <!-- Table -->
-  <div class="overflow-x-auto">
-    <table class="min-w-full border border-slate-200 divide-y divide-slate-200 text-sm text-center rounded-xl overflow-hidden shadow-lg">
-      <!-- Header -->
+  <div class="overflow-x-auto shadow-xl rounded-lg border border-slate-200">
+    <table class="min-w-full border-collapse text-sm text-center">
       <thead class="bg-gradient-to-r from-slate-50 to-slate-100">
         <tr>
-          <th class="px-4 py-3 font-semibold text-slate-700">Country</th>
+          <th class="px-4 py-3 font-semibold text-slate-700">State</th>
           <th class="px-4 py-3 font-semibold text-yellow-600">🥇 Gold</th>
           <th class="px-4 py-3 font-semibold text-gray-500">🥈 Silver</th>
           <th class="px-4 py-3 font-semibold text-amber-700">🥉 Bronze</th>
           <th class="px-4 py-3 font-semibold text-indigo-700">Total</th>
         </tr>
       </thead>
-
-      <!-- Body -->
-      <tbody class="divide-y divide-slate-100">
-        <tr class="hover:bg-yellow-50 transition">
-          <td class="px-4 py-3 font-medium text-slate-800">Malaysia</td>
-          <td class="px-4 py-3 font-bold text-yellow-600">12</td>
-          <td class="px-4 py-3 font-bold text-gray-500">8</td>
-          <td class="px-4 py-3 font-bold text-amber-700">5</td>
-          <td class="px-4 py-3 font-extrabold text-indigo-700">25</td>
-        </tr>
-        <tr class="bg-slate-50 hover:bg-indigo-50 transition">
-          <td class="px-4 py-3 font-medium text-slate-800">Indonesia</td>
-          <td class="px-4 py-3 font-bold text-yellow-600">9</td>
-          <td class="px-4 py-3 font-bold text-gray-500">10</td>
-          <td class="px-4 py-3 font-bold text-amber-700">7</td>
-          <td class="px-4 py-3 font-extrabold text-indigo-700">26</td>
-        </tr>
-        <!-- Add more rows -->
-      </tbody>
+<tbody id="medal-tbody">
+<?php foreach($medals as $m): ?>
+<tr class="hover:bg-yellow-50 transition">
+    <td class="px-4 py-3 font-medium text-slate-800"><?= $m['state_name'] ?></td>
+    <td class="px-4 py-3 font-bold text-yellow-600"><?= $m['gold'] ?></td>
+    <td class="px-4 py-3 font-bold text-gray-500"><?= $m['silver'] ?></td>
+    <td class="px-4 py-3 font-bold text-amber-700"><?= $m['bronze'] ?></td>
+    <td class="px-4 py-3 font-extrabold text-indigo-700"><?= $m['total'] ?></td>
+</tr>
+<?php endforeach; ?>
+</tbody>
     </table>
   </div>
 </section>
-<!-- Live / Recent Match Results -->
-<section class="py-12 bg-gradient-to-b from-blue-50 to-white" id="live-results">
-  <div class="container mx-auto px-4">
 
-    <!-- Title -->
+<!-- Live/Recent Match Results Section -->
+<section class="py-12 bg-gradient-to-b from-blue-50 to-white" id="live-results">
+  <div id="live-results" class="container mx-auto px-4">
     <div class="text-center mb-10">
       <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 tracking-tight">
         Live & Recent Match Results
@@ -194,95 +202,56 @@ $associations = [
       <p class="mt-2 text-gray-600 text-lg">⚡ Updated scores from SOPMA XXII Sarawak 2025</p>
     </div>
 
-    <?php
-    $matches = [
-      [
-        "sport" => "Futsal",
-        "icon" => "fas fa-futbol",
-        "venue" => "Indoor Stadium Kota Samarahan",
-        "date" => "2 Oct 2025",
-        "team1" => "FTDeaf",
-        "score1" => 3,
-        "team2" => "SelSDeaf",
-        "score2" => 2
-      ],
-      [
-        "sport" => "Badminton",
-        "icon" => "fas fa-table-tennis",
-        "venue" => "Arena Sukan Kuching",
-        "date" => "3 Oct 2025",
-        "team1" => "NSDeaf",
-        "score1" => 2,
-        "team2" => "KelSDeaf",
-        "score2" => 1
-      ],
-      [
-        "sport" => "Bowling",
-        "icon" => "fas fa-bowling-ball",
-        "venue" => "Megalanes Sarawak",
-        "date" => "4 Oct 2025",
-        "team1" => "PrSDeaf",
-        "score1" => 500,
-        "team2" => "TSDeaf",
-        "score2" => 480
-      ],
-    ];
-    ?>
-
     <!-- Desktop Table -->
     <div class="hidden md:block overflow-x-auto shadow-xl rounded-lg border border-slate-200">
       <table class="w-full border-collapse text-sm md:text-base">
         <thead class="bg-gradient-to-r from-blue-700 to-blue-900 text-white">
           <tr>
             <th class="px-4 py-3 text-left">Sport</th>
+            <th class="px-4 py-3 text-left">Event</th>
             <th class="px-4 py-3 text-left">Venue</th>
             <th class="px-4 py-3 text-left">Date</th>
-            <th class="px-4 py-3 text-center">Match</th>
-            <th class="px-4 py-3 text-center">Result</th>
+            <th class="px-4 py-3 text-left">Gold</th>
+            <th class="px-4 py-3 text-left">Silver</th>
+            <th class="px-4 py-3 text-center">Bronze</th>
+            <!-- <th class="px-4 py-3 text-center">Result</th> -->
           </tr>
         </thead>
-        <tbody class="divide-y divide-slate-200">
-          <?php foreach ($matches as $m): ?>
-            <tr class="hover:bg-blue-50 transition">
-              <td class="px-4 py-3 font-medium text-slate-800">
-                <i class="<?php echo $m['icon']; ?> text-blue-600"></i> <?php echo $m['sport']; ?>
-              </td>
-              <td class="px-4 py-3 text-slate-600"><?php echo $m['venue']; ?></td>
-              <td class="px-4 py-3 text-slate-600"><?php echo $m['date']; ?></td>
-              <td class="px-4 py-3 text-center font-medium text-slate-800">
-                <?php echo $m['team1']; ?> <span class="text-blue-500">vs</span> <?php echo $m['team2']; ?>
-              </td>
-              <td class="px-4 py-3 text-center font-bold text-blue-900">
-                <span class="px-3 py-1 bg-blue-100 rounded-lg">
-                  <?php echo $m['score1']; ?> - <?php echo $m['score2']; ?>
-                </span>
-              </td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
+       <tbody id="results-tbody">
+<?php foreach($results as $r): ?>
+<tr class="hover:bg-blue-50 transition">
+    <td class="px-4 py-3 font-medium text-slate-800"><?= $r['sport_name'] ?></td>
+    <td class="px-4 py-3"><?= $r['event_name'] ?></td>
+    <td class="px-4 py-3"><?= $r['sport_venue'] ?></td>
+    <td class="px-4 py-3"><?= $r['match_date'] ?></td>
+    <td class="px-4 py-3 font-bold text-yellow-600"><?= $r['gold'] ?></td>
+    <td class="px-4 py-3 font-bold text-gray-500"><?= $r['silver'] ?></td>
+    <td class="px-4 py-3 font-bold text-amber-700"><?= $r['bronze'] ?></td>
+</tr>
+<?php endforeach; ?>
+</tbody>
+
       </table>
     </div>
 
     <!-- Mobile Cards -->
-    <div class="md:hidden space-y-4">
-      <?php foreach ($matches as $m): ?>
-        <div class="bg-white rounded-lg shadow-lg border border-slate-200 p-4">
-          <h3 class="font-bold text-lg text-blue-800 mb-2 flex items-center gap-2">
-            <i class="<?php echo $m['icon']; ?> text-blue-600"></i> <?php echo $m['sport']; ?>
-          </h3>
-          <p class="text-slate-600 text-sm mb-1"><strong class="text-slate-700">Venue:</strong> <?php echo $m['venue']; ?></p>
-          <p class="text-slate-600 text-sm mb-3"><strong class="text-slate-700">Date:</strong> <?php echo $m['date']; ?></p>
-          <div class="flex justify-between items-center font-semibold text-slate-800">
-            <span><?php echo $m['team1']; ?></span>
-            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg shadow-sm">
-              <?php echo $m['score1']; ?> - <?php echo $m['score2']; ?>
-            </span>
-            <span><?php echo $m['team2']; ?></span>
-          </div>
+    <div class="md:hidden space-y-4" id="results-cards">
+    <?php foreach($results as $r): ?>
+    <div class="bg-white rounded-lg shadow-lg border border-slate-200 p-4">
+        <h3 class="font-bold text-lg text-blue-800 mb-2 flex items-center gap-2">
+            <i class="fas fa-futbol text-blue-600"></i> <?= $r['sport_name'] ?>
+        </h3>
+        <p class="text-slate-600 text-sm mb-1"><strong class="text-slate-700">Event:</strong> <?= $r['event_name'] ?></p>
+        <p class="text-slate-600 text-sm mb-1"><strong class="text-slate-700">Venue:</strong> <?= $r['sport_venue'] ?></p>
+        <p class="text-slate-600 text-sm mb-3"><strong class="text-slate-700">Date:</strong> <?= $r['match_date'] ?></p>
+        <div class="flex justify-between items-center font-semibold text-slate-800">
+            <span class="text-yellow-600 font-bold"><?= $r['gold'] ?> 🥇</span>
+            <span class="text-gray-500 font-bold"><?= $r['silver'] ?> 🥈</span>
+            <span class="text-amber-700 font-bold"><?= $r['bronze'] ?> 🥉</span>
         </div>
-      <?php endforeach; ?>
     </div>
-
+    <?php endforeach; ?>
+</div>
   </div>
 </section>
 
@@ -290,7 +259,9 @@ $associations = [
 <?php include 'parnter.php'; ?>
 <?php include 'includes/footer.php'; ?>
 
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/main.js"></script>
 <!-- JS for Modals -->
 <script>
   function openModal(index) {
@@ -423,5 +394,7 @@ function translateTo(lang) {
         select.dispatchEvent(new Event('change'));
     }
 }
+
+
 </script>
 
